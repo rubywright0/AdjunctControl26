@@ -4,7 +4,7 @@ import re
 import os
  
 
-INPUT_FILE = input("StimuliSPR.xlsx")
+INPUT_FILE = "StimuliSPR.xlsx"
  
 # Automatically generate output file name
 base_name = os.path.splitext(INPUT_FILE)[0]
@@ -62,7 +62,9 @@ for _, row in df.iterrows():
         "trial_id": str(row["trial_id"]),
         "item": int(row["item"]),
         "condition_voice": str(row["condition_voice"]),
-        "condition_pronoun": str(row["condition_pronoun"])
+        "condition_pronoun": str(row["condition_pronoun"]),
+        "question_attribtute": str(row["question_attribute"]),
+        "correct_answer": str(row["correct_answer"])
     })
  
 # Write JSON output

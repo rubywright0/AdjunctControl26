@@ -24,10 +24,14 @@ function build_trials() {
     var random = _.sample([1,2,3,4])
     condition_list.push(((i + 1)* 10) + random)
   }
+  for (var i = 0; i < 24; i++) {
+    condition_list.push(1000 + i)
+  }
   console.log(condition_list) // requires shuffling still
   shuffle(condition_list)
   console.log(condition_list)
-  const presentation_list = condition_list.map((integer) => full_stimuli.find((item) => item.condition_id === integer));
+  const condition_strings = condition_list.map(num => num.toString());
+  const presentation_list = condition_strings.map((integer) => full_stimuli.find((item) => item.trial_id === integer));
   return presentation_list
 
 
@@ -103,7 +107,7 @@ function make_slides(f) {
         
       });
       
-      $("#comprehension-question-q").text(stim.question);
+      $("#comprehension-question-q").text(stim.questio_attribute);
       
       
       
